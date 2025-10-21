@@ -1,5 +1,4 @@
-import { Users } from "@/features/users";
-import { UsersProvider } from "@/features/users/providers";
+import { Users, UsersProvider } from "@/features/users";
 import { Header } from "@/widgets";
 
 const UsersPage = () => {

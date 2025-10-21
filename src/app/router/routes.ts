@@ -1,4 +1,4 @@
 export const APP_ROUTES = {
   USERS: "/",
-  USER: "/:userId",
+  USER: (id: number) => `/users/${id}`,
 };

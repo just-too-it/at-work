@@ -1,14 +1,18 @@
+import { useNavigate } from "react-router";
+
 import type { DropdownAction } from "@/shared/ui";
 
+import { APP_ROUTES } from "@/app/router/routes";
 import { useUsersStore } from "@/features/users";
 
 export const useUserAction = (userId: number, isActive: boolean) => {
   const { archiveUser, activateUser, hideUser } = useUsersStore();
+  const navigate = useNavigate();
 
   const activeUserActions: DropdownAction[] = [
     {
       label: "Редактировать",
-      onClick: () => console.log(userId),
+      onClick: () => navigate(APP_ROUTES.USER(userId)),
     },
     {
       label: "Архивировать",
