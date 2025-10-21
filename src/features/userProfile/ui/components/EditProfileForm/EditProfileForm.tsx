@@ -1,5 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+
+import { SuccessPopup } from "../SuccessPopup/SuccessPopup";
 
 import styles from "./EditProfileForm.module.scss";
 
@@ -16,6 +19,8 @@ interface EditProfileFormProps {
 }
 
 export const EditProfileForm = ({ user }: EditProfileFormProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -38,49 +43,57 @@ export const EditProfileForm = ({ user }: EditProfileFormProps) => {
     updateUser({
       ...data,
     });
+    setIsModalOpen(true);
+  };
+
+  const onCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-      <FormField
-        label="Имя"
-        id="name"
-        register={register("name")}
-        error={errors.name}
-      />
-      <FormField
-        label="Никнейм"
-        id="username"
-        register={register("username")}
-        error={errors.username}
-      />
-      <FormField
-        label="Почта"
-        id="email"
-        register={register("email")}
-        error={errors.email}
-      />
-      <FormField
-        label="Город"
-        id="city"
-        register={register("city")}
-        error={errors.city}
-      />
-      <FormField
-        label="Телефон"
-        id="phone"
-        register={register("phone")}
-        error={errors.phone}
-      />
-      <FormField
-        label="Название компании"
-        id="company"
-        register={register("company")}
-        error={errors.company}
-      />
-      <Button type="submit" className={styles.button}>
-        Сохранить
-      </Button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+        <FormField
+          label="Имя"
+          id="name"
+          register={register("name")}
+          error={errors.name}
+        />
+        <FormField
+          label="Никнейм"
+          id="username"
+          register={register("username")}
+          error={errors.username}
+        />
+        <FormField
+          label="Почта"
+          id="email"
+          register={register("email")}
+          error={errors.email}
+        />
+        <FormField
+          label="Город"
+          id="city"
+          register={register("city")}
+          error={errors.city}
+        />
+        <FormField
+          label="Телефон"
+          id="phone"
+          register={register("phone")}
+          error={errors.phone}
+        />
+        <FormField
+          label="Название компании"
+          id="company"
+          register={register("company")}
+          error={errors.company}
+        />
+        <Button type="submit" className={styles.button}>
+          Сохранить
+        </Button>
+      </form>
+      <SuccessPopup isOpen={isModalOpen} onClose={onCloseModal} />
+    </>
   );
 };

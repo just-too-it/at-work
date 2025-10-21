@@ -1,0 +1,22 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 0 20px 20px;
+  margin-top: -14px;
+
+  @media (min-width: 1200px) {
+    gap: 20px;
+  }
+}
+
+.message {
+  color: var(--color-02);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+
+  @media (min-width: 1200px) {
+    font-size: var(--font-size-xl);
+  }
+}

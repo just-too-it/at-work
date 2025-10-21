@@ -5,3 +5,4 @@ export * from "./BackButton";
 export * from "./Header";
 export * from "./FormField";
 export * from "./Button";
+export * from "./Modal";
