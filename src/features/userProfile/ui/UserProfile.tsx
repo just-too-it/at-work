@@ -1,45 +1,44 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 
-import { useUserProfileQuery, useUserProfileStore } from "../model";
+import { useUserProfileStore } from "../model";
 
+import { ProfileCard, UserInfo } from "./components";
 import styles from "./UserProfile.module.scss";
 
-import { UserInfo } from "@/entities/user";
 import { USER_PROFILE_TABS } from "@/entities/user/lib/userProfileTabs";
 import { getErrorMessage } from "@/shared/lib/utils";
 import { Loader } from "@/shared/ui";
 
 export const UserProfile = () => {
-  const { userId } = useParams();
   const [currentTab, setCurrentTab] = useState(USER_PROFILE_TABS[0]);
-  const { error: queryError, isLoading: queryLoading } = useUserProfileQuery(
-    Number(userId)
-  );
-  const { currentUser } = useUserProfileStore();
 
-  if (queryLoading)
+  const { currentUser, isLoading, error } = useUserProfileStore();
+
+  if (isLoading)
     return (
       <div className={styles.data}>
         <Loader />
       </div>
     );
 
-  if (queryError)
-    return <div className={styles.data}>{getErrorMessage(queryError)}</div>;
+  if (error) return <div className={styles.data}>{getErrorMessage(error)}</div>;
+
+  if (!currentUser) {
+    return <div className={styles.data}>Пользователь не найден</div>;
+  }
 
   return (
-    <>
+    <section className={styles.content}>
       <UserInfo
         img={currentUser?.img}
         activeTab={currentTab}
         onTabChange={setCurrentTab}
       />
       {currentTab === "Данные профиля" ? (
-        <>User Profile</>
+        <ProfileCard title="Данные профиля" user={currentUser}></ProfileCard>
       ) : (
         <div className={styles.empty}>Для этого раздела нет данных</div>
       )}
-    </>
+    </section>
   );
 };

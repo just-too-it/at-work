@@ -6,11 +6,15 @@ import type { UsersState } from "./store.types";
 export const useUsersStore = create<UsersState>()((set) => ({
   users: [],
   isInitialized: false,
+  isLoading: true,
+  error: null,
 
   initializeUsers: (users) =>
     set({
       users,
       isInitialized: true,
+      isLoading: false,
+      error: null,
     }),
 
   archiveUser: (userId) =>
@@ -31,6 +35,9 @@ export const useUsersStore = create<UsersState>()((set) => ({
     set((state) => ({
       users: state.users.filter((user) => user.id !== userId),
     })),
+
+  setLoading: (loading) => set({ isLoading: loading }),
+  setError: (error) => set({ error }),
 }));
 
 export const useActiveUsers = () => {

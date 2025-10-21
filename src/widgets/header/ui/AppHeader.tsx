@@ -1,12 +1,12 @@
 import clsx from "clsx";
 
-import styles from "./Header.module.scss";
+import styles from "./AppHeader.module.scss";
 
 import { Avatar, mockAvatar } from "@/entities/user";
 import { Logo } from "@/shared/ui";
 import { LikeIcon, NotificationIcon } from "@/shared/ui/icons";
 
-export const Header = () => {
+export const AppHeader = () => {
   return (
     <header className="full-width">
       <div className={clsx("container", styles.header)}>

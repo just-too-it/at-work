@@ -1,3 +1,3 @@
-export * from "./ui";
-export * from "./model";
+export { UserProfile } from "./ui";
 export * from "./providers";
+export * from "./model";

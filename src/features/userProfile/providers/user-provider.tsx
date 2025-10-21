@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { useUserProfileQuery } from "../model/user.queries";
-import { useUserProfileStore } from "../model/user.store";
+import { useUserProfileQuery } from "../model/user-profile.queries";
+import { useUserProfileStore } from "../model/user-profile.store";
 
 export const UserProfileProvider = ({
   children,
@@ -11,8 +11,20 @@ export const UserProfileProvider = ({
 }) => {
   const { userId } = useParams();
 
-  const { data: user } = useUserProfileQuery(Number(userId));
-  const { updateUser } = useUserProfileStore();
+  const { data: user, isLoading, error } = useUserProfileQuery(Number(userId));
+  const { updateUser, setLoading, setError } = useUserProfileStore();
+
+  useEffect(() => {
+    setLoading(isLoading);
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (error) {
+      setError(error.message);
+    } else {
+      setError(null);
+    }
+  }, [error]);
 
   useEffect(() => {
     if (user) {

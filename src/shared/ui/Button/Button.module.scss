@@ -1,0 +1,28 @@
+.button {
+  width: 130px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 50px;
+  background: var(--color-01);
+  color: var(--color-06);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--color-accent);
+    background: var(--color-05);
+    color: var(--color-02);
+  }
+
+  @media (min-width: 1200px) {
+    width: 136px;
+    height: 46px;
+    font-size: var(--font-size-md);
+  }
+}

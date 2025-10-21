@@ -1,9 +1,4 @@
-import {
-  useActiveUsers,
-  useArchivedUsers,
-  useUsersQuery,
-  useUsersStore,
-} from "../model";
+import { useActiveUsers, useArchivedUsers, useUsersStore } from "../model";
 
 import { List } from "./components";
 import styles from "./Users.module.scss";
@@ -12,26 +7,24 @@ import { getErrorMessage } from "@/shared/lib/utils";
 import { Loader } from "@/shared/ui";
 
 export const Users = () => {
-  const { error: queryError, isLoading: queryLoading } = useUsersQuery();
-  const { isInitialized } = useUsersStore();
+  const { isInitialized, isLoading, error } = useUsersStore();
 
   const activeUsers = useActiveUsers();
   const archivedUsers = useArchivedUsers();
 
-  if (queryLoading && !isInitialized)
+  if (isLoading && !isInitialized)
     return (
       <div className={styles.data}>
         <Loader />
       </div>
     );
 
-  if (queryError)
-    return <div className={styles.data}>{getErrorMessage(queryError)}</div>;
+  if (error) return <div className={styles.data}>{getErrorMessage(error)}</div>;
 
   return (
     <>
-      {!queryLoading &&
-      !queryError &&
+      {!isLoading &&
+      !error &&
       activeUsers?.length === 0 &&
       archivedUsers?.length === 0 ? (
         <div className={styles.data}>Пользователи не найдены</div>

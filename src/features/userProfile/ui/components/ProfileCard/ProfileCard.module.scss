@@ -1,0 +1,17 @@
+.profileCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px;
+  border-radius: var(--radius-l);
+  background: var(--color-06);
+  gap: 20px;
+
+  @media (min-width: 1200px) {
+    width: 760px;
+    height: 813px;
+    padding: 40px;
+    gap: 24px;
+  }
+}

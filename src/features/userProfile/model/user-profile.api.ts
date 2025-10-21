@@ -1,6 +1,8 @@
 import { mapUserDTOToUserProfile } from "../../../entities/user/lib/user.utils";
 
-import { type UserDTO, type UserProfile } from "@/entities/user";
+import type { UserProfile } from "./user-profile.types";
+
+import { type UserDTO } from "@/entities/user";
 import config from "@/shared/config/api";
 import { getErrorMessage } from "@/shared/lib/utils";
 

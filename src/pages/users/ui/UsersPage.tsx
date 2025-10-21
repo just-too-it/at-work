@@ -1,10 +1,10 @@
 import { Users, UsersProvider } from "@/features/users";
-import { Header } from "@/widgets";
+import { AppHeader } from "@/widgets";
 
 const UsersPage = () => {
   return (
     <>
-      <Header />
+      <AppHeader />
       <main className="container">
         <UsersProvider>
           <Users />

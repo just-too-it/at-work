@@ -1,4 +1,5 @@
-import type { User, UserDTO, UserProfile } from "../model";
+import type { User, UserDTO } from "../model";
+import type { UserProfile } from "@/features/userProfile/model";
 
 import { ASSETS } from "@/shared/lib/utils";
 

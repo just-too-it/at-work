@@ -1,10 +1,10 @@
 import clsx from "clsx";
 
-import { USER_PROFILE_TABS } from "../../lib/userProfileTabs";
-
 import styles from "./UserInfo.module.scss";
 
 import type { UserInfoProps } from "./types";
+
+import { USER_PROFILE_TABS } from "@/entities/user/lib/userProfileTabs";
 
 export const UserInfo = ({ img, activeTab, onTabChange }: UserInfoProps) => {
   return (
