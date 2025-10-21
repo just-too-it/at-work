@@ -20,9 +20,28 @@
     color: var(--color-02);
   }
 
+  &:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease-in-out;
+  }
+
   @media (min-width: 1200px) {
     width: 136px;
     height: 46px;
     font-size: var(--font-size-md);
+  }
+}
+
+.disabled {
+  background: var(--color-03);
+  cursor: auto;
+
+  &:hover {
+    color: var(--color-06);
+    background: var(--color-03);
+  }
+
+  &:active {
+    transform: none;
   }
 }
