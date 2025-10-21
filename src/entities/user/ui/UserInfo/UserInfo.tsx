@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { useState } from "react";
 
 import { USER_PROFILE_TABS } from "../../lib/userProfileTabs";
 
@@ -7,9 +6,7 @@ import styles from "./UserInfo.module.scss";
 
 import type { UserInfoProps } from "./types";
 
-export const UserInfo = ({ img }: UserInfoProps) => {
-  const [currentTab, setCurrentTab] = useState(USER_PROFILE_TABS[0]);
-
+export const UserInfo = ({ img, activeTab, onTabChange }: UserInfoProps) => {
   return (
     <article className={styles.card}>
       <div className={styles.imgWrapper}>
@@ -20,9 +17,9 @@ export const UserInfo = ({ img }: UserInfoProps) => {
           <li
             key={tab}
             className={clsx(styles.tab, {
-              [styles.active]: tab === currentTab,
+              [styles.active]: tab === activeTab,
             })}
-            onClick={() => setCurrentTab(tab)}
+            onClick={() => onTabChange(tab)}
           >
             {tab}
           </li>

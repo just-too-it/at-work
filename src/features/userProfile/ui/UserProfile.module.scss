@@ -13,3 +13,15 @@
     font-size: var(--font-size-xl);
   }
 }
+
+.empty {
+  text-align: center;
+  color: var(--color-accent);
+  min-height: 40px;
+  padding: var(--spacing-mobile);
+  margin-top: 20px;
+
+  @media (min-width: 1200px) {
+    padding: var(--spacing-desktop);
+  }
+}
