@@ -1,0 +1,15 @@
+.data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-mobile);
+  height: 100vh;
+
+  color: var(--color-accent);
+  font-size: var(--font-size-md);
+
+  @media (min-width: 1200px) {
+    padding: var(--spacing-desktop);
+    font-size: var(--font-size-xl);
+  }
+}

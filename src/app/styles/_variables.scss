@@ -1,0 +1,58 @@
+:root {
+  /* Colors */
+  --color-accent: #22a0bc;
+  --color-01: #161616;
+  --color-02: #595959;
+  --color-03: #9c9c9c;
+  --color-04: #dadada;
+  --color-05: #f4f4f4;
+  --color-06: #fdfdfd;
+
+  /* Font Families */
+  --font-family-primary: "Manrope", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+
+  /* Font Sizes */
+  --font-size-xs: 10px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Border radius */
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+
+  /* Line Heights */
+  --line-height: 100%;
+
+  /* Shadows */
+  --shadow-s: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Breakpoints */
+  --breakpoint-mobile: 375px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1200px;
+
+  /* Containers */
+  --container-mobile: 375px;
+  --container-tablet: 720px;
+  --container-desktop: 1224px;
+
+  /* Spacing */
+  --spacing-mobile: 16px;
+  --spacing-desktop: 32px;
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
