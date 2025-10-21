@@ -4,7 +4,7 @@ A React-based user management application with archive functionality and editing
 
 ## 🚀 Live Demo
 
-[Add your deployment link here]
+[Deployment link here](https://at-work-umber.vercel.app/)
 
 ## 🛠️ Tech Stack
 
@@ -17,7 +17,7 @@ A React-based user management application with archive functionality and editing
 ## 📦 Installation
 
 ```bash
-git clone [https://github.com/just-too-it/at-work.git](https://github.com/just-too-it/at-work.git)
+git clone https://github.com/just-too-it/at-work.git
 cd user-management-dashboard
 npm install
 npm run dev
